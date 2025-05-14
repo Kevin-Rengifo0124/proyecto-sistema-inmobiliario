@@ -1,6 +1,7 @@
-package util;
+package util.implementacion;
 
 import java.io.Serializable;
+import util.IQueue;
 
 public class Queue<T> implements IQueue<T>, Serializable {
 

@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package util;
+package util.implementacion;
 
 import java.io.Serializable;
+import util.IListaEnlazada;
 
 public class ListaEnlazada<T> implements IListaEnlazada<T>,Serializable {
 

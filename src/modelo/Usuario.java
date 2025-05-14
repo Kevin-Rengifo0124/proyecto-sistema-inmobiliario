@@ -4,7 +4,9 @@
  */
 package modelo;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
 
     protected String email;
     protected String clave;

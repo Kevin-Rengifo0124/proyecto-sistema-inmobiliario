@@ -6,7 +6,7 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.Date;
-import util.ListaEnlazada;
+import util.implementacion.ListaEnlazada;
 
 public class Propiedad implements Serializable {
 
@@ -35,27 +35,28 @@ public class Propiedad implements Serializable {
     private ListaEnlazada<Mensaje> mensajes;
     private Date fechaRegistro;
     private Date fechaCierre;
+    private Inmueble inmueble;
 
-    public Propiedad(String id, String direccion, String ciudad, String tipo, double precio,
-            String descripcion, Cliente propietario) {
+    public Propiedad() {
+    }
+
+    public Propiedad(String id, String direccion, String ciudad, String tipo, double precio, String descripcion, String estado, Cliente propietario, Empleado encargado, Sede sede, boolean permiteAgendarVisita, ListaEnlazada<Agenda> visitas, ListaEnlazada<Mensaje> mensajes, Date fechaRegistro, Date fechaCierre, Inmueble inmueble) {
         this.id = id;
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.tipo = tipo;
         this.precio = precio;
         this.descripcion = descripcion;
+        this.estado = estado;
         this.propietario = propietario;
-        this.estado = ESTADO_PENDIENTE_ASIGNACION;
-        this.permiteAgendarVisita = false;
-        this.visitas = new ListaEnlazada<>();
-        this.mensajes = new ListaEnlazada<>();
-        this.fechaRegistro = new Date();
-    }
-
-    // Constructor vacío para serialización
-    public Propiedad() {
-        this.visitas = new ListaEnlazada<>();
-        this.mensajes = new ListaEnlazada<>();
+        this.encargado = encargado;
+        this.sede = sede;
+        this.permiteAgendarVisita = permiteAgendarVisita;
+        this.visitas = visitas;
+        this.mensajes = mensajes;
+        this.fechaRegistro = fechaRegistro;
+        this.fechaCierre = fechaCierre;
+        this.inmueble = inmueble;
     }
 
     public String getId() {
@@ -207,7 +208,6 @@ public class Propiedad implements Serializable {
                 int visitaFin = visitaInicio + visita.getDuracion();
                 int nuevaVisitaFin = horaInicio + duracion;
 
-                // Verificar si hay solapamiento
                 if ((horaInicio >= visitaInicio && horaInicio < visitaFin)
                         || (nuevaVisitaFin > visitaInicio && nuevaVisitaFin <= visitaFin)
                         || (horaInicio <= visitaInicio && nuevaVisitaFin >= visitaFin)) {

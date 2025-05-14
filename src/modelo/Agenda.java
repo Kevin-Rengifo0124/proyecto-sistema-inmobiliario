@@ -13,8 +13,8 @@ public class Agenda implements Serializable {
     private Propiedad propiedad;
     private Cliente cliente;
     private Date fecha;
-    private int horaInicio; // Hora en formato 24h (0-23)
-    private int duracion; // En horas
+    private int horaInicio; 
+    private int duracion; 
     private boolean completada;
     private boolean cancelada;
 

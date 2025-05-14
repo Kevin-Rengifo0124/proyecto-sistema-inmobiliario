@@ -5,7 +5,7 @@
 package modelo;
 
 import java.io.Serializable;
-import util.ListaEnlazada;
+import util.implementacion.ListaEnlazada;
 
 public class Empleado extends Persona implements Serializable {
 
