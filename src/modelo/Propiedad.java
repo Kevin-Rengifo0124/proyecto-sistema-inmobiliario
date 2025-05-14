@@ -191,6 +191,14 @@ public class Propiedad implements Serializable {
         this.fechaCierre = fechaCierre;
     }
 
+    public Inmueble getInmueble() {
+        return inmueble;
+    }
+
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
+    }
+
     public void agregarVisita(Agenda visita) {
         visitas.add(visita);
     }
