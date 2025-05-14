@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/empleado/VentanaEmpleado.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/administrador/VentanaMatrizSedes.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/Usuario.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/controlador/ControladorCliente.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/Inmueble.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/proyectoinmobiliaria/ProyectoInmobiliaria.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/MatrizSedesDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/cliente/VentanaCliente.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/PropiedadDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/ClienteDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/AgendaDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/cliente/VentanaRegistroCliente.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/UsuarioDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/controlador/ControladorLogin.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/singleton/Singleton.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/UsuarioDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/MensajeDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/cliente/VentanaRegistrarPropiedad.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/Administrador.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/Persona.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/MensajeDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/administrador/VentanaRegistrarEmpleado.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/controlador/ControladorAdministrador.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/administrador/VentanaAdministrador.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/EmpleadoDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/PropiedadDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/implementacion/SedeDAOImpl.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/VentanaLogin.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/vista/empleado/VentanaMensajes.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/ClienteDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/SedeDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/MatrizSedesDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/Propiedad.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/EmpleadoDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/dao/AgendaDAO.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/controlador/ControladorEmpleado.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/modelo/MatrizSedes.java</file>
+            <file>file:/Users/kevinrengifo/Documents/ProyectoInmobiliaria/src/controlador/ControladorInmuebles.java</file>
+        </group>
+    </open-files>
+</project-private>

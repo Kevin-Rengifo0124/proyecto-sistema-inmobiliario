@@ -74,6 +74,7 @@ public class ControladorAdministrador {
     /**
      * Registra un nuevo empleado asignado a una sede
      */
+    // En el método registrarEmpleado de ControladorAdministrador
     public void registrarEmpleado(Empleado empleado, String ciudadSede)
             throws UsuarioExistenteException {
 
@@ -81,6 +82,19 @@ public class ControladorAdministrador {
         Sede sede = sedeDAO.buscarPorCiudad(ciudadSede);
         if (sede == null) {
             throw new RuntimeException("No existe una sede en la ciudad: " + ciudadSede);
+        }
+
+        // Verificar que el empleado no esté asignado a otra sede
+        ListaEnlazada<Sede> sedes = sedeDAO.listarTodas();
+        for (int i = 0; i < sedes.size(); i++) {
+            Sede s = sedes.get(i);
+            ListaEnlazada<Empleado> empleadosSede = s.getEmpleados();
+
+            for (int j = 0; j < empleadosSede.size(); j++) {
+                if (empleadosSede.get(j).getEmail().equals(empleado.getEmail())) {
+                    throw new RuntimeException("El empleado ya está asignado a la sede: " + s.getCiudad());
+                }
+            }
         }
 
         // Guardar el empleado

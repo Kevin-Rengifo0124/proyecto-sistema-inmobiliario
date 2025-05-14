@@ -4,7 +4,9 @@
  */
 package modelo;
 
-public class Inmueble {
+import java.io.Serializable;
+
+public class Inmueble implements Serializable{
 
     private String id;
     private String tipoInmueble;

@@ -16,7 +16,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
 
     private ListaEnlazada<Usuario> listaUsuarios;
     private ListaEnlazada<Empleado> listaEmpleados;
-    
+
     public EmpleadoDAOImpl() {
         this.listaUsuarios = Singleton.getINSTANCIA().getListaUsuarios();
         this.listaEmpleados = Singleton.getINSTANCIA().getListaEmpleados();
@@ -30,7 +30,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 throw new UsuarioExistenteException(empleado.getEmail());
             }
         }
-        
+
         // Verificar si ya existe un usuario con la misma cédula
         for (int i = 0; i < listaUsuarios.size(); i++) {
             if (listaUsuarios.get(i) instanceof Empleado) {
@@ -40,7 +40,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 }
             }
         }
-        
+
         listaUsuarios.add(empleado);
         listaEmpleados.add(empleado);
         Singleton.getINSTANCIA().escribirUsuarios();
@@ -50,7 +50,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
     @Override
     public void actualizar(Empleado empleado) throws UsuarioNoEncontradoException {
         boolean encontrado = false;
-        
+
         // Actualizar en listaUsuarios
         for (int i = 0; i < listaUsuarios.size(); i++) {
             if (listaUsuarios.get(i).getEmail().equals(empleado.getEmail())) {
@@ -60,7 +60,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 break;
             }
         }
-        
+
         // Actualizar en listaEmpleados
         for (int i = 0; i < listaEmpleados.size(); i++) {
             if (listaEmpleados.get(i).getEmail().equals(empleado.getEmail())) {
@@ -69,11 +69,11 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 break;
             }
         }
-        
+
         if (!encontrado) {
             throw new UsuarioNoEncontradoException(empleado.getEmail());
         }
-        
+
         Singleton.getINSTANCIA().escribirUsuarios();
         Singleton.getINSTANCIA().escribirEmpleados();
     }
@@ -81,7 +81,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
     @Override
     public void eliminar(String email) throws UsuarioNoEncontradoException {
         Empleado empleado = buscarPorEmail(email);
-        
+
         // Eliminar de listaUsuarios
         for (int i = 0; i < listaUsuarios.size(); i++) {
             if (listaUsuarios.get(i).getEmail().equals(email)) {
@@ -89,7 +89,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 break;
             }
         }
-        
+
         // Eliminar de listaEmpleados
         for (int i = 0; i < listaEmpleados.size(); i++) {
             if (listaEmpleados.get(i).getEmail().equals(email)) {
@@ -97,7 +97,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 break;
             }
         }
-        
+
         Singleton.getINSTANCIA().escribirUsuarios();
         Singleton.getINSTANCIA().escribirEmpleados();
     }
@@ -162,17 +162,17 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 throw new EmpleadoIncompatibleException("arriendo");
             }
         }
-        
+
         // Verificar si la sede tiene cupo
         if (!empleado.getSede().tieneCupo()) {
             throw new CapacidadExcedidaException(empleado.getSede().getCiudad());
         }
-        
+
         empleado.asignarPropiedad(propiedad);
         propiedad.setEncargado(empleado);
         propiedad.setSede(empleado.getSede());
         empleado.getSede().agregarPropiedad(propiedad);
-        
+
         try {
             actualizar(empleado);
             Singleton.getINSTANCIA().escribirPropiedades();

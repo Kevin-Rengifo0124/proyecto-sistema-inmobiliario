@@ -4,6 +4,8 @@
  */
 package proyectoinmobiliaria;
 
+import vista.VentanaLogin;
+
 /**
  *
  * @author kevinrengifo
@@ -14,8 +16,12 @@ public class ProyectoInmobiliaria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // Asegurar que la aplicación se inicie desde la ventana de login
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
+                // Iniciar la aplicación con la pantalla de login
+                VentanaLogin ventanaLogin = new VentanaLogin();
+                ventanaLogin.setVisible(true);
             }
         });
     }

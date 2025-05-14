@@ -92,11 +92,13 @@ public class SedeDAOImpl implements SedeDAO {
         // Verificar que el empleado no esté asignado a otra sede
         for (int i = 0; i < listaSedes.size(); i++) {
             Sede s = listaSedes.get(i);
-            ListaEnlazada<Empleado> empleadosSede = s.getEmpleados();
+            if (!s.getCiudad().equals(sede.getCiudad())) { // No verificar la sede actual
+                ListaEnlazada<Empleado> empleadosSede = s.getEmpleados();
 
-            for (int j = 0; j < empleadosSede.size(); j++) {
-                if (empleadosSede.get(j).getEmail().equals(empleado.getEmail())) {
-                    throw new RuntimeException("El empleado ya está asignado a otra sede: " + s.getCiudad());
+                for (int j = 0; j < empleadosSede.size(); j++) {
+                    if (empleadosSede.get(j).getEmail().equals(empleado.getEmail())) {
+                        throw new RuntimeException("El empleado ya está asignado a otra sede: " + s.getCiudad());
+                    }
                 }
             }
         }
