@@ -71,10 +71,7 @@ public class ControladorAdministrador {
         return matrizSedesDAO.obtenerMatriz();
     }
 
-    /**
-     * Registra un nuevo empleado asignado a una sede
-     */
-    // En el método registrarEmpleado de ControladorAdministrador
+    // Verificar que el empleado no esté asignado a otra sede (por email o cédula)
     public void registrarEmpleado(Empleado empleado, String ciudadSede)
             throws UsuarioExistenteException {
 
@@ -91,12 +88,15 @@ public class ControladorAdministrador {
             ListaEnlazada<Empleado> empleadosSede = s.getEmpleados();
 
             for (int j = 0; j < empleadosSede.size(); j++) {
-                if (empleadosSede.get(j).getEmail().equals(empleado.getEmail())) {
-                    throw new RuntimeException("El empleado ya está asignado a la sede: " + s.getCiudad());
+                Empleado e = empleadosSede.get(j);
+                if (e.getEmail().equals(empleado.getEmail())) {
+                    throw new RuntimeException("El empleado ya está asignado a la sede: " + s.getCiudad() + " con el mismo email");
+                }
+                if (e.getCedula().equals(empleado.getCedula())) {
+                    throw new RuntimeException("El empleado ya está asignado a la sede: " + s.getCiudad() + " con la misma cédula");
                 }
             }
         }
-
         // Guardar el empleado
         empleadoDAO.guardar(empleado);
 

@@ -31,7 +31,6 @@ public class VentanaRegistrarEmpleado extends JFrame {
     private JButton btnRegistrar;
     private JButton btnCancelar;
 
-    // En la clase VentanaRegistrarEmpleado
     public VentanaRegistrarEmpleado() {
         setTitle("Registrar Empleado");
         setSize(500, 400);
@@ -185,7 +184,6 @@ public class VentanaRegistrarEmpleado extends JFrame {
         });
         panelBotones.add(btnRegistrar);
 
-// Botón Cancelar
         btnCancelar = new JButton("Cancelar");
         btnCancelar.addActionListener(new ActionListener() {
             @Override
@@ -195,21 +193,13 @@ public class VentanaRegistrarEmpleado extends JFrame {
         });
         panelBotones.add(btnCancelar);
 
-// Botón Volver
-        JButton btnVolver = new JButton("Volver");
-        btnVolver.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
-        panelBotones.add(btnVolver);
-
-// Añadir el panel de botones al contenedor principal
         gbc.gridx = 0;
-        gbc.gridy = 10; // Ajustar según la posición correcta en tu interfaz
+        gbc.gridy = 10;
         gbc.gridwidth = 2;
         panel.add(panelBotones, gbc);
+
+        // Añadir el panel al contenedor principal (esto faltaba)
+        getContentPane().add(panel);
     }
 
     private void registrarEmpleado() {
@@ -237,9 +227,28 @@ public class VentanaRegistrarEmpleado extends JFrame {
             return;
         }
 
-        try {
-            // ... validaciones existentes ...
+        // Validar que no exista un empleado con la misma cédula en cualquier sede (nueva validación)
+        ListaEnlazada<Empleado> empleados = Singleton.getINSTANCIA().getListaEmpleados();
+        for (int i = 0; i < empleados.size(); i++) {
+            Empleado empleado = empleados.get(i);
+            if (empleado.getCedula().equals(txtCedula.getText())) {
+                JOptionPane.showMessageDialog(this,
+                        "Ya existe un empleado con esta cédula en la sede: "
+                        + (empleado.getSede() != null ? empleado.getSede().getCiudad() : "Sin sede"),
+                        "Error de validación", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            // Validar también por email para evitar duplicados
+            if (empleado.getEmail().equals(txtEmail.getText())) {
+                JOptionPane.showMessageDialog(this,
+                        "Ya existe un empleado con este email en la sede: "
+                        + (empleado.getSede() != null ? empleado.getSede().getCiudad() : "Sin sede"),
+                        "Error de validación", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
 
+        try {
             String ciudadSede = (String) cmbSede.getSelectedItem();
 
             // Crear el empleado

@@ -131,9 +131,14 @@ public class VentanaLogin extends JFrame {
     }
 
     private void mostrarRegistroCliente() {
-        // Asegurarnos de que creamos una nueva instancia y la mostramos
-        VentanaRegistroCliente ventanaRegistro = new VentanaRegistroCliente();
-        ventanaRegistro.setVisible(true);
-        this.dispose();
+        // Asegurarnos de que creamos una nueva instancia y la mostramos correctamente
+        try {
+            VentanaRegistroCliente ventanaRegistro = new VentanaRegistroCliente();
+            ventanaRegistro.setVisible(true);
+            this.dispose(); // Cerramos la ventana actual solo después de asegurarnos que la nueva se creó correctamente
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir ventana de registro: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
